@@ -34,7 +34,8 @@ New-Item -ItemType Directory -Path $paths.FEATURE_DIR -Force | Out-Null
 # Copy plan template if it exists, otherwise note it or create empty file
 $template = Join-Path $paths.REPO_ROOT '.specify/templates/plan-template.md'
 if (Test-Path $template) { 
-    Copy-Item $template $paths.IMPL_PLAN -Force
+    # Ensure UTF-8 encoding for plan.md to support non-ASCII content
+    Get-Content $template -Encoding UTF8 | Set-Content $paths.IMPL_PLAN -Encoding UTF8
     Write-Output "Copied plan template to $($paths.IMPL_PLAN)"
 } else {
     Write-Warning "Plan template not found at $template"

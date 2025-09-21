@@ -91,10 +91,10 @@ New-Item -ItemType Directory -Path $featureDir -Force | Out-Null
 
 $template = Join-Path $repoRoot 'templates/spec-template.md'
 $specFile = Join-Path $featureDir 'spec.md'
-if (Test-Path $template) { 
-    Copy-Item $template $specFile -Force 
-} else { 
-    New-Item -ItemType File -Path $specFile | Out-Null 
+if (Test-Path $template) {
+    Get-Content $template -Encoding UTF8 | Set-Content $specFile -Encoding UTF8
+} else {
+    New-Item -ItemType File -Path $specFile | Out-Null
 }
 
 # Set the SPECIFY_FEATURE environment variable for the current session

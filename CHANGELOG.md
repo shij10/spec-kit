@@ -5,6 +5,17 @@ All notable changes to the Specify CLI will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.13] - 2025-09-21
+
+### Added
+
+- 新增 Bash 版 `review` 与 `complete` 脚本（位于 `scripts/bash/`），并在命令模板中支持 `{SCRIPT}` 与脚本变体选择。
+
+### Changed
+
+- `templates/commands/review.md` 与 `templates/commands/complete.md` 添加 `scripts` frontmatter，适配多代理生成逻辑。
+- `src/specify_cli/__init__.py` 支持通过 `SPECIFY_TEMPLATE_REPO` 环境变量覆盖模板来源仓库（形如 `owner/repo`）。
+
 ## [0.0.12] - 2025-09-21
 
 ### Changed
