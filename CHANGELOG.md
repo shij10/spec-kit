@@ -9,12 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- 新增 Bash 版 `review` 与 `complete` 脚本（位于 `scripts/bash/`），并在命令模板中支持 `{SCRIPT}` 与脚本变体选择。
+- Add Bash implementations for `review-feature` and `complete` (under `scripts/bash/`), with command templates supporting `{SCRIPT}` and script variants.
 
 ### Changed
 
-- `templates/commands/review.md` 与 `templates/commands/complete.md` 添加 `scripts` frontmatter，适配多代理生成逻辑。
-- `src/specify_cli/__init__.py` 支持通过 `SPECIFY_TEMPLATE_REPO` 环境变量覆盖模板来源仓库（形如 `owner/repo`）。
+- Rename command template `review` to `review-feature` to avoid collision with Claude Code built-in command name.
+- Add `scripts` frontmatter to `templates/commands/review-feature.md` and `templates/commands/complete.md` for multi-agent generation.
+- Allow overriding the template source repository via `SPECIFY_TEMPLATE_REPO` env var (format: `owner/repo`) in `src/specify_cli/__init__.py`.
 
 ## [0.0.12] - 2025-09-21
 

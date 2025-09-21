@@ -1,8 +1,8 @@
 ---
 description: Review a feature by performing comprehensive checks before completion
 scripts:
-  sh: scripts/bash/review.sh
-  ps: scripts/powershell/review.ps1
+  sh: scripts/bash/review-feature.sh
+  ps: scripts/powershell/review-feature.ps1
 ---
 
 Given the context provided as an argument, do this:
@@ -31,7 +31,9 @@ Given the context provided as an argument, do this:
    - Provide green light for completion
 
 Usage examples:
-- Run from feature branch: `/review`
-- Specify feature name: `/review 002-feature`
+- Run from feature branch: `/review-feature`
+- Specify feature name: `/review-feature 002-feature`
 
 Context for feature review: $ARGUMENTS
+
+

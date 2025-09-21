@@ -30,6 +30,6 @@ Usage examples:
 - Run from feature branch after review: `/complete`
 - Specify feature name: `/complete 002-feature`
 
-Note: Always run `/review` command first to ensure feature is ready for completion.
+Note: Always run `/review-feature` command first to ensure feature is ready for completion.
 
 Context for feature completion: $ARGUMENTS

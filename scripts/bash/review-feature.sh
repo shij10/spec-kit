@@ -116,10 +116,10 @@ PY
       if echo "$content" | grep -qE 'password.*=.*["\'"'\"][[:alnum:]_]+["\'"'\"]'; then
         violations+=("Hardcoded password detected in $file")
       fi
-      if [[ "$ext" == "py" ]] && echo "$content" | grep -qE '\bexec\s*\('; then
+      if [[ "$ext" == "py" ]] && echo "$content" | grep -qE '\\bexec\\s*\\('; then
         violations+=("Use of exec() in $file")
       fi
-      if [[ "$ext" == "js" ]] && echo "$content" | grep -qE '\beval\s*\('; then
+      if [[ "$ext" == "js" ]] && echo "$content" | grep -qE '\\beval\\s*\\('; then
         violations+=("Use of eval() in $file")
       fi
     fi
