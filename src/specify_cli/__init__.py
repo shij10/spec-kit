@@ -431,8 +431,14 @@ def init_git_repo(project_path: Path, quiet: bool = False) -> bool:
 
 
 def download_template_from_github(ai_assistant: str, download_dir: Path, *, script_type: str = "sh", verbose: bool = True, show_progress: bool = True, client: httpx.Client = None, debug: bool = False, github_token: str = None) -> Tuple[Path, dict]:
-    repo_owner = "github"
-    repo_name = "spec-kit"
+    # Allow override of the template source repository via environment variable for forks
+    # SPECIFY_TEMPLATE_REPO can be in the form "owner/repo" (e.g., "shij10/spec-kit")
+    override_repo = os.getenv("SPECIFY_TEMPLATE_REPO", "").strip()
+    if override_repo and "/" in override_repo:
+        repo_owner, repo_name = override_repo.split("/", 1)
+    else:
+        repo_owner = "github"
+        repo_name = "spec-kit"
     if client is None:
         client = httpx.Client(verify=ssl_context)
     

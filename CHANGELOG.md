@@ -5,6 +5,18 @@ All notable changes to the Specify CLI will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.13] - 2025-09-21
+
+### Added
+
+- Add Bash implementations for `review-feature` and `complete` (under `scripts/bash/`), with command templates supporting `{SCRIPT}` and script variants.
+
+### Changed
+
+- Rename command template `review` to `review-feature` to avoid collision with Claude Code built-in command name.
+- Add `scripts` frontmatter to `templates/commands/review-feature.md` and `templates/commands/complete.md` for multi-agent generation.
+- Allow overriding the template source repository via `SPECIFY_TEMPLATE_REPO` env var (format: `owner/repo`) in `src/specify_cli/__init__.py`.
+
 ## [0.0.12] - 2025-09-21
 
 ### Changed
